@@ -16,6 +16,11 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
+# Infracost files
+infracost.json
+infracost-*.json
+*.infracost
+
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf
