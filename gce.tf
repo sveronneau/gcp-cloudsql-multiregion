@@ -37,7 +37,7 @@ module "test-vm" {
   attached_disks = [
     {
       name        = "attached-disk"
-      size        = 10
+      size        = 15
       source      = null
       source_type = null
       options     = null
