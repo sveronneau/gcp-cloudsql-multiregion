@@ -1,0 +1,17 @@
+steps:
+  - name: 'hashicorp/terraform'
+    args:
+      - 'init'
+  - name: 'hashicorp/terraform'
+    args: ['plan', '-var', 'project_id=$PROJECT_ID', '-var', 'prefix=deploystack', '-var', 'postgres_user_password=$$POSTGRES_USER_PASSWORD']
+    secretEnv: ['POSTGRES_USER_PASSWORD']
+  - name: 'hashicorp/terraform'
+    args: ['apply', '-var', 'project_id=$PROJECT_ID', '-var', 'prefix=deploystack', '-var', 'postgres_user_password=$$POSTGRES_USER_PASSWORD', '-auto-approve']
+    secretEnv: ['POSTGRES_USER_PASSWORD']
+  - name: 'hashicorp/terraform'
+    args: ['destroy', '-var', 'project_id=$PROJECT_ID', '-var', 'prefix=deploystack', '-var', 'postgres_user_password=$$POSTGRES_USER_PASSWORD', '-auto-approve']
+    secretEnv: ['POSTGRES_USER_PASSWORD']
+availableSecrets:
+  secretManager:
+    - versionName: projects/453762149049/secrets/POSTGRES_USER_PASSWORD/versions/1
+      env: 'POSTGRES_USER_PASSWORD'
