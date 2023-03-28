@@ -37,7 +37,7 @@ module "test-vm" {
   attached_disks = [
     {
       name        = "attached-disk"
-      size        = 10
+      size        = 15
       source      = null
       source_type = null
       options     = null
@@ -48,7 +48,7 @@ module "test-vm" {
   boot_disk = {
     image = "projects/debian-cloud/global/images/family/debian-10"
     type  = "pd-ssd"
-    size  = 125
+    size  = 150
   }
   encryption = var.service_encryption_keys != null ? {
     encrypt_boot            = true
