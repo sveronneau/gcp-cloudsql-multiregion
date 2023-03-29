@@ -48,7 +48,7 @@ module "test-vm" {
   boot_disk = {
     image = "projects/debian-cloud/global/images/family/debian-10"
     type  = "pd-ssd"
-    size  = 40
+    size  = 500
   }
   encryption = var.service_encryption_keys != null ? {
     encrypt_boot            = true
